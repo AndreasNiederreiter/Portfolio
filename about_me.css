@@ -1,0 +1,186 @@
+/* Basis */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #111;
+}
+
+:root {
+	--container-pad: 18px;
+	--banner-height: 60px;
+}
+
+/* Banner / Header (aus index.css) */
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: var(--banner-height);
+	background-color: rgba(240, 240, 240, 0.95);
+	backdrop-filter: blur(5px);
+}
+
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 0 var(--container-pad);
+}
+
+.nav-button {
+	padding: 8px 16px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #333;
+	font-size: 0.9rem;
+	transition: background-color 0.2s;
+}
+
+.nav-button-large {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-right: auto;
+}
+
+.nav-button:hover {
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Container */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--container-pad);
+	padding-top: calc(var(--banner-height) + var(--container-pad));
+}
+
+.about-container {
+	padding-bottom: var(--container-pad);
+}
+
+/* Titel */
+.single-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.8rem;
+	margin: 8px 0 1.5rem 0;
+}
+
+/* About content: 2-spaltig auf Desktop, 1-spaltig auf Mobil */
+.about-content {
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	gap: 3rem;
+	align-items: start;
+}
+
+/* Linke Spalte: Text + Tabelle (linksbündig) */
+.about-left {
+	text-align: left;
+}
+
+.about-text {
+	color: #333;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0 0 2rem 0;
+	white-space: pre-wrap;
+}
+
+/* Tabelle */
+.about-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+.about-table tr {
+	border-bottom: 1px solid #eee;
+}
+
+.about-table td {
+	padding: 10px 0;
+	vertical-align: top;
+}
+
+.about-table td.label {
+	font-weight: 600;
+	color: #222;
+	padding-right: 20px;
+	min-width: 150px;
+}
+
+.about-table td:last-child {
+	color: #555;
+}
+
+/* Rechte Spalte: Bild */
+.about-right {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.about-image {
+	width: 100%;
+	max-width: 280px;
+	height: auto;
+	border-radius: 12px;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+	object-fit: cover;
+}
+
+/* Responsive: auf Mobilgeräten 1-spaltig, Bild oben */
+@media (max-width: 900px) {
+	.about-content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	/* statt left-align: Bild zentrieren auf Mobil */
+	.about-right {
+		justify-content: center; /* zuvor flex-start */
+		align-items: center;
+	}
+	.about-image {
+		max-width: 200px;
+	}
+	/* Bild nach oben verschieben (oben direkt unter Überschrift) */
+	.about-right {
+		order: -1;
+	}
+}
+
+@media (max-width: 600px) {
+	.container {
+		padding-left: 12px;
+		padding-right: 12px;
+		padding-top: calc(var(--banner-height) + 12px);
+	}
+	.single-title {
+		font-size: 1.4rem;
+	}
+	.about-text {
+		font-size: 0.95rem;
+	}
+	.about-table {
+		font-size: 0.85rem;
+	}
+	.about-table td {
+		padding: 8px 0;
+	}
+	.about-table td.label {
+		min-width: 120px;
+		padding-right: 12px;
+	}
+	.about-image {
+		max-width: 180px;
+	}
+}

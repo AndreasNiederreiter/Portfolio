@@ -1,0 +1,233 @@
+/* Basis-Variablen und Reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #111;
+}
+
+:root {
+	--container-pad: 18px;
+	--cards-gap: 18px;
+	--banner-height: 60px;
+}
+
+/* Banner / Header (kopiert/angepasst von index.css) */
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: var(--banner-height);
+	background-color: rgba(240, 240, 240, 0.95);
+	backdrop-filter: blur(5px);
+}
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 0 var(--container-pad);
+}
+.nav-button {
+	padding: 8px 16px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #333;
+	font-size: 0.9rem;
+	transition: background-color 0.2s;
+}
+.nav-button-large {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-right: auto;
+}
+.nav-button:hover { background-color: rgba(0,0,0,0.06); }
+
+/* Container: Reserve oben für fixed Header */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--container-pad);
+	padding-top: calc(var(--banner-height) + var(--container-pad));
+}
+
+/* Titel / Subtitle / Button */
+.single-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.8rem;
+	margin: 8px 0 4px 0;
+}
+.single-subtitle {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.15rem;
+	margin: 0 0 12px 0;
+	color: #111; /* gleiche Farbe wie Titel */
+}
+.single-sub {
+	text-align: center;
+	max-width: 900px;
+	margin: 0.25rem auto 1.5rem auto;
+	color: #333;
+	font-size: 1.1rem; /* größerer Text */
+	line-height: 1.4;
+}
+
+/* Work section title - größerer Abstand, zentriert */
+.work-section-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	margin: 2rem 0 1.5rem 0;
+	color: #111;
+}
+
+/* Call-to-action Button */
+.cta-wrap { text-align: center; margin-bottom: 2.5rem; } /* erhöht von 18px auf 2.5rem */
+.cta-button {
+	display: inline-block;
+	background: #2b74d6;
+	color: #fff;
+	text-decoration: none;
+	padding: 8px 12px;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: background 180ms ease;
+}
+.cta-button:hover { background: #265fb3; }
+
+/* Galerie und Items (Bilder untereinander, wie index.html) */
+.gallery {
+	display: flex;
+	flex-direction: column;
+	gap: var(--cards-gap);
+}
+
+/* Gallery item: mehr Abstand zwischen Bild+Caption und nächstem Element */
+.gallery-item {
+	display: flex;
+	flex-direction: column;
+	gap: 12px; /* Abstand zwischen Bild und Caption */
+	margin-bottom: 2rem; /* mehr Abstand zum nächsten Element */
+}
+
+/* Card: entferne fixe Höhe, damit Collage größer dargestellt werden kann */
+.card {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 14px;
+	text-decoration: none;
+	flex: none;
+	/* Höhe automatisch, Collage bestimmt die Größe */
+	height: auto;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+	background: #fafafa;
+	padding: 8px;
+}
+
+/* Collage grid: größere, klarere Zellen auf Desktop; mehrere Reihen möglich */
+.collage {
+	width: 100%;
+	/* Höhe nicht festlegen — Inhalt (Bilder) bestimmt */
+	display: grid;
+	gap: 8px;
+	align-items: stretch;
+	justify-items: stretch;
+}
+
+/* spezifische Dichten: mehr Spalten für collage-10, mittig für collage-9, weniger für collage-5 */
+.collage.collage-10 {
+	/* auf großen Bildschirmen 5 Spalten, mittlere 3, mobil 2/1 */
+	grid-template-columns: repeat(5, 1fr);
+}
+.collage.collage-9 {
+	grid-template-columns: repeat(3, 1fr);
+}
+.collage.collage-5 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* Collage cell - Bildverhalten: voll sichtbar, kein Beschneiden */
+.collage-item {
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px;
+}
+
+/* Bilder in Collage: Höhe automatisch, Breite 100% der Zelle */
+.collage-item img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	display: block;
+}
+
+/* Caption: größer und deutlicher */
+.card-caption {
+	text-align: center;
+	color: #222;
+	margin: 0;
+	font-size: 1.1rem;
+	line-height: 1.4;
+}
+
+/* Hero image direkt unter der Unterüberschrift - angepasst: kleiner auf Desktop, volle Breite auf Mobil */
+.hero-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 10px 0 18px 0;
+}
+.hero-image {
+	/* kleiner auf großen Bildschirmen, aber immer vollständig sichtbar */
+	width: 60%;            /* reduziert von 80% auf 60% */
+	max-width: 640px;      /* geringere absolute Obergrenze */
+	height: auto;
+	object-fit: contain;
+	border-radius: 10px;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Tablet: etwas größer als Desktop-min, aber kleiner als vorher */
+@media (max-width: 900px) {
+	.hero-image { width: 80%; max-width: 720px; }
+}
+/* Mobil: volle Breite (bleibt vollständig sichtbar) */
+@media (max-width: 600px) {
+	.hero-wrap { margin: 8px 0 14px 0; }
+	.hero-image { width: 100%; max-width: none; border-radius: 8px; }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1200px) {
+	.collage.collage-10 { grid-template-columns: repeat(4, 1fr); }
+	.collage.collage-9  { grid-template-columns: repeat(3, 1fr); }
+	.collage.collage-5  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 800px) {
+	.collage.collage-10 { grid-template-columns: repeat(3, 1fr); }
+	.collage.collage-9  { grid-template-columns: repeat(2, 1fr); }
+	.collage.collage-5  { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+	.container { max-width: 100%; padding-left: 0; padding-right: 0; padding-top: calc(var(--banner-height) + 8px); padding-bottom: 0; }
+	.collage.collage-10 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+	.collage.collage-9  { grid-template-columns: repeat(2, 1fr); }
+	.collage.collage-5  { grid-template-columns: repeat(1, 1fr); }
+	.single-title { font-size: 1.35rem; }
+	.single-subtitle { font-size: 1rem; }
+}

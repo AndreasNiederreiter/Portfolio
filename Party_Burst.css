@@ -1,0 +1,181 @@
+/* Basis-Variablen und Reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #111;
+}
+
+:root {
+	--container-pad: 18px;
+	--cards-gap: 18px;
+	--banner-height: 60px;
+}
+
+/* Banner / Header (kopiert/angepasst von index.css) */
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: var(--banner-height);
+	background-color: rgba(240, 240, 240, 0.95);
+	backdrop-filter: blur(5px);
+}
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 0 var(--container-pad);
+}
+.nav-button {
+	padding: 8px 16px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #333;
+	font-size: 0.9rem;
+	transition: background-color 0.2s;
+}
+.nav-button-large {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-right: auto;
+}
+.nav-button:hover { background-color: rgba(0,0,0,0.06); }
+
+/* Container: Abstand oben für fixed Header + kleineres Padding wie index.css */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--container-pad);
+	padding-top: calc(var(--banner-height) + var(--container-pad));
+}
+
+/* Galerie: Bilder untereinander wie auf index.html */
+.gallery {
+	display: flex;
+	flex-direction: column;
+	gap: var(--cards-gap);
+}
+
+/* Neuer Wrapper: steuert den kleinen Abstand zwischen Bild (Card) und Caption */
+.gallery-item {
+	display: flex;
+	flex-direction: column;
+	gap: 12px; /* Abstand zwischen Bild und Caption */
+	margin-bottom: 2rem; /* mehr Abstand zum nächsten Element */
+}
+
+/* Card: gleiche Höhenlogik wie index.css (zeigt ~2.5 Karten) */
+.card {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 14px;
+	text-decoration: none;
+	flex: none;
+	/* wie auf index: Höhe berechnet aus Viewport minus Banner, Paddings und Gaps */
+	height: calc((100vh - (var(--container-pad) * 2) - (var(--cards-gap) * 2) - var(--banner-height)) / 2.5);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+	background: #fafafa;
+	padding: 8px;
+}
+
+/* Bilder skalieren wie auf index: Höhe füllt Card, Seitenverhältnis bleibt erhalten, kein Abschneiden */
+.card img {
+	height: 100%;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+	display: block;
+	transition: none;
+	border-radius: 10px;
+}
+
+/* statische Karten: kein Overlay / kein Hover-Effekt; Caption unter dem Bild */
+.card.static { cursor: default; }
+.card.static .overlay { display: none; }
+.card-caption {
+	text-align: center;
+	color: #222;
+	margin: 0;
+	font-size: 1.1rem;
+	line-height: 1.4;
+}
+
+/* Titel + Text */
+.single-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.6rem;
+	margin: 8px 0;
+}
+.single-sub {
+	text-align: center;
+	max-width: 800px;
+	margin: 0.25rem auto 1.5rem auto;
+	color: #333;
+	font-size: 1.1rem; /* größerer Text */
+	line-height: 1.4;
+}
+
+/* Mobile-Anpassungen: kleinere Gaps, Container volle Breite, Reserve über Header */
+@media (max-width: 600px) {
+	.container { max-width: 100%; padding-left: 0; padding-right: 0; padding-top: calc(var(--banner-height) + 8px); padding-bottom: 0; }
+	.gallery { gap: 8px; }
+	.card { height: calc((100vh - (8px * 2) - var(--banner-height)) / 2.5); }
+	.card img { height: 100%; width: auto; object-fit: contain; }
+	.single-title { font-size: 1.25rem; }
+}
+
+/* Video trailer block (responsive, fully visible) */
+.video-wrap {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 18px 0;
+}
+.project-trailer {
+	width: 80%;           /* moderate size on desktop */
+	max-width: 800px;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+	background: #000;
+}
+.video-note {
+	margin-top: 10px;
+	text-align: center;
+	color: #444;
+	font-size: 0.95rem;
+	max-width: 800px;
+}
+
+/* Work section title - größerer Abstand, zentriert */
+.work-section-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	margin: 2rem 0 1.5rem 0;
+	color: #111;
+}
+
+/* Responsive: larger on tablet, full width on mobile */
+@media (max-width: 900px) {
+	.project-trailer { width: 90%; max-width: 720px; }
+}
+@media (max-width: 600px) {
+	.container { padding-left: 8px; padding-right: 8px; padding-top: calc(var(--banner-height) + 8px); }
+	.project-trailer { width: 100%; max-width: none; border-radius: 8px; }
+	.video-wrap { margin: 12px 0; }
+	.video-note { font-size: 0.95rem; padding: 0 8px; }
+}

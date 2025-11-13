@@ -1,0 +1,135 @@
+/* Basis */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #111;
+}
+
+:root {
+	--container-pad: 18px;
+	--banner-height: 60px;
+	--contact-gap: 18px;
+	--icon-size: 36px;
+}
+
+/* Banner / Header (aus index.css) */
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: var(--banner-height);
+	background-color: rgba(240, 240, 240, 0.95);
+	backdrop-filter: blur(5px);
+}
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 0 var(--container-pad);
+}
+.nav-button {
+	padding: 8px 16px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: #333;
+	font-size: 0.9rem;
+	transition: background-color 0.2s;
+}
+.nav-button-large {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-right: auto;
+}
+.nav-button:hover { background-color: rgba(0,0,0,0.06); }
+
+/* Container */
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: var(--container-pad);
+	padding-top: calc(var(--banner-height) + var(--container-pad));
+	text-align: center;
+}
+
+/* Titel */
+.single-title {
+	text-transform: uppercase;
+	font-size: 1.6rem;
+	margin: 8px 0 1.25rem 0;
+	color: #111;
+}
+
+/* Kontaktliste zentriert */
+.contact-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--contact-gap);
+	align-items: center;
+	justify-content: center;
+	padding: 8px 12px 40px 12px;
+}
+
+/* Gemeinsame Basis für Einträge */
+.contact-item,
+.linkedin-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none;
+	color: #111;
+	background: transparent;
+	padding: 10px 14px;
+	border-radius: 10px;
+	transition: background 160ms ease, transform 120ms ease;
+	font-size: 1.05rem;
+}
+
+/* LinkedIn Button optisch hervorheben: im Stil wie .cta-button in Fall_of_Egypt.css */
+.linkedin-btn {
+	background: #2b74d6;            /* gleiche Farbe wie CTA */
+	color: #fff;
+	padding: 8px 12px;             /* gleiche Größe wie CTA */
+	border-radius: 10px;
+	box-shadow: 0 6px 14px rgba(43,116,214,0.12);
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: background 180ms ease;
+}
+.linkedin-btn:hover { background: #265fb3;           /* dunklerer Blauton, wie CTA-Button */ }
+
+/* Icon sizing */
+.contact-icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: inline-block;
+	object-fit: contain;
+}
+
+/* hover states */
+.contact-item:hover,
+.linkedin-btn:hover { background: rgba(0,0,0,0.04); }
+
+/* kleinere Geräte: Schriftgröße & Icon reduzieren, zentrierter Abstand */
+@media (max-width: 800px) {
+	:root { --icon-size: 32px; }
+	.contact-item, .linkedin-btn { font-size: 1rem; padding: 10px 12px; }
+	.container { padding-left: 12px; padding-right: 12px; padding-top: calc(var(--banner-height) + 12px); }
+}
+
+/* sehr kleine Geräte: Icon noch kleiner und kompakter */
+@media (max-width: 420px) {
+	:root { --icon-size: 28px; }
+	.contact-item, .linkedin-btn { font-size: 0.95rem; gap: 10px; }
+	.single-title { font-size: 1.3rem; margin-bottom: 1rem; }
+}
