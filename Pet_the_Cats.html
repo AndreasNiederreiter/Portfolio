@@ -38,8 +38,8 @@
 			<!-- Main villain concept art -->
 			<div class="gallery-item">
 				<div class="card">
-					<!-- Illustration bleibt ohne full-width, damit sie nicht aufgeblasen wird -->
-					<img src="Pet_the_Cats_images\Illustration2.png" alt="Main villain concept art">
+					<!-- Illustration: kleiner auf Desktop, komplett sichtbar (kein Scrollen) -->
+					<img class="fit-desktop" src="Pet_the_Cats_images\Illustration2.png" alt="Main villain concept art">
 				</div>
 				<p class="card-caption">Concept Art of the main villain</p>
 			</div>
@@ -126,20 +126,22 @@
 
 			<div class="gallery-item">
 				<div class="card">
-					<!-- Asset-Sammlung-6.0: bleibt ohne full-width (verhindert Aufblähen/pixelig) -->
-					<img src="Pet_the_Cats_images\Asset-Sammlung-6.0.png" alt="Library floor texture">
+					<!-- Asset-Sammlung-6.0: gleiche Darstellungsgröße wie Asset-Sammlung-3.0 -->
+					<img class="equal-size" src="Pet_the_Cats_images\Asset-Sammlung-6.0.png" alt="Library floor texture">
 				</div>
 				<p class="card-caption">Floor texture for the library</p>
 			</div>
 
 			<div class="gallery-item">
 				<div class="card">
-					<!-- Asset-Sammlung-3.0: bleibt ohne full-width -->
-					<img src="Pet_the_Cats_images\Asset-Sammlung-3.0.png" alt="Cellar floor and wall">
+					<!-- Asset-Sammlung-3.0: gleiche Darstellungsgröße wie Asset-Sammlung-6.0 -->
+					<img class="equal-size" src="Pet_the_Cats_images\Asset-Sammlung-3.0.png" alt="Cellar floor and wall">
 				</div>
 				<p class="card-caption">Floor and wall textures for a secret beneath of a fountain</p>
 			</div>
 		</section>
 	</main>
+	<!-- unsichtbarer Abstand am Ende, damit untere Browserleisten Inhalt nicht überdecken -->
+	<div aria-hidden="true" role="presentation" style="height:env(safe-area-inset-bottom,16px);width:100%;display:block;"></div>
 </body>
 </html>

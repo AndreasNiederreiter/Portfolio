@@ -1,6 +1,6 @@
 /* Basis-Variablen und Reset */
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; overflow-y: scroll; }
 body {
     background: #ffffff;
     font-family: Arial, Helvetica, sans-serif;

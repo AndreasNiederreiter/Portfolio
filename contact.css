@@ -1,6 +1,6 @@
 /* Basis */
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; overflow-y: scroll; }
 body {
 	background: #ffffff;
 	font-family: Arial, Helvetica, sans-serif;
@@ -117,8 +117,10 @@ body {
 }
 
 /* hover states */
-.contact-item:hover,
-.linkedin-btn:hover { background: rgba(0,0,0,0.04); }
+.contact-item:hover { background: rgba(0,0,0,0.04); }
+
+/* LinkedIn button: beim Hover nur etwas dunkler bleiben (spezifische Regel, damit die generische Hover-Regel ihn nicht überschreibt) */
+.linkedin-btn:hover { background: #265fb3; color: #fff; }
 
 /* kleinere Geräte: Schriftgröße & Icon reduzieren, zentrierter Abstand */
 @media (max-width: 800px) {

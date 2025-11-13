@@ -1,6 +1,6 @@
 /* Kopiert/angepasst aus index.css für Header + Bildverhalten */
 * { box-sizing: border-box; }
-html, body { height:100%; margin:0; }
+html, body { height:100%; margin:0; overflow-y: scroll; }
 body { background:#fff; font-family: Arial, Helvetica, sans-serif; color:#111; }
 
 :root { --container-pad:18px; --cards-gap:18px; --banner-height:60px; }

@@ -236,6 +236,25 @@ body {
 	line-height: 1.4;
 }
 
+/* Utilities für gezieltes Desktop-Verhalten:
+   - .fit-desktop: Illustration soll auf großen Bildschirmen nicht zu groß werden
+     und komplett in die Viewport-Höhe passen (keine Scroll-Anforderung).
+   - .equal-size: erzwingt auf großen Bildschirmen gleiche max-Breite für zwei Bilder. */
+@media (min-width: 901px) {
+	.card img.fit-desktop {
+		max-width: 820px; /* reduziert Breite auf Desktop */
+		max-height: calc(100vh - var(--banner-height) - 160px); /* passt Bild in die Viewport-Höhe */
+		width: auto;
+		height: auto;
+	}
+
+	.card img.equal-size {
+		max-width: 700px; /* gleiche Darstellungsbreite für beide Assets auf Desktop */
+		width: auto;
+		height: auto;
+	}
+}
+
 /* Responsive */
 @media (max-width: 900px) {
 	.project-trailer { width: 90%; max-width: 720px; }
