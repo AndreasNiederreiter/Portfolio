@@ -248,10 +248,19 @@ body {
 		height: auto;
 	}
 
+	/* equal-size: erzwingt auf großen Bildschirmen exakt gleiche dargestellte Breite */
 	.card img.equal-size {
-		max-width: 700px; /* gleiche Darstellungsbreite für beide Assets auf Desktop */
-		width: auto;
+		/* feste Anzeige-Breite (gleicher Wert für beide Bilder) */
+		width: 700px;
+		/* keine zusätzliche max-width, damit die Breite exakt ist */
+		max-width: none;
+		/* skaliere Höhe automatisch, aber begrenze sie, damit das Bild nicht aus dem Viewport ragt */
 		height: auto;
+		max-height: calc(100vh - var(--banner-height) - 160px);
+		/* zentrieren innerhalb der Card */
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 

@@ -140,12 +140,10 @@ body {
 		padding-bottom: 0;
 	}
 	.cards {
-		/* kein vertikales Padding mehr, volle Höhe */
-		/* gap wird kleiner */
-		gap: 8px;
+		/* größerer Abstand zwischen den Bildern auf Mobilgeräten */
+		gap: 20px;
 	}
-	/* WICHTIG: auf Mobilgeräten Card-Höhe auto, damit Hochkant-Bilder vollständig angezeigt werden
-	   (die Card wächst dann; Bild skaliert mit width:100% und height:auto) */
+	/* WICHTIG: auf Mobilgeräten Card-Höhe auto, damit Hochkant-Bilder vollständig angezeigt werden */
 	.card {
 		height: auto;
 	}
@@ -156,6 +154,14 @@ body {
 		height: auto;
 		max-width: 100%;
 		object-fit: contain;
+	}
+	/* 1. und 3. Bild etwas kleiner darstellen (vollständig sichtbar, zentriert) */
+	.cards .card:nth-child(1) img,
+	.cards .card:nth-child(3) img {
+		width: 86%;
+		max-width: 86%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.overlay { padding: 12px; }
 	.overlay h3 { font-size: 1rem; }
