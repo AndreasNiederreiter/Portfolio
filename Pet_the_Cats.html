@@ -3,15 +3,133 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>picture_one</title>
-	<link rel="stylesheet" href="index.css">
+	<title>Pet the Cats</title>
+	<link rel="stylesheet" href="Pet_the_Cats.css">
 </head>
 <body>
-	<!-- ...existing code... -->
-	<main class="single">
-		<a href="index.html">← Zurück</a>
-		<img src="images/picture_one.jpg" alt="Picture one" style="width:100%;height:auto;display:block;border-radius:8px;margin-top:12px;">
+	<header class="banner">
+		<nav class="nav-container">
+			<a href="index.html" class="nav-button nav-button-large">Portfolio</a>
+			<a href="about_me.html" class="nav-button">About Me</a>
+			<a href="contact.html" class="nav-button">Contact</a>
+		</nav>
+	</header>
+
+	<main class="container single">
+		<h1 class="single-title">PET THE CATS</h1>
+		<p class="single-sub">Pet the Cats is a small 3D game I created in the first semester as a university project. You play as a cute bear and explore a small town to find and pet cats. The goal is to collect all the cats and interact with them. I was responsible for the entire art, animation, and level design.</p>
+
+		<!-- Video -->
+		<div class="video-wrap">
+			<video class="project-trailer" controls preload="metadata" playsinline>
+				<source src="Pet_the_Cats_images\Pet_the_Cats.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+			<p class="video-note">This isn't a trailer. It's only a little showcase of the gameplay, so you can get an impression of the game.</p>
+		</div>
+
+		<div class="cta-wrap">
+			<a class="cta-button" href="https://docs.google.com/document/d/1-sRm14jkEW9LQ4nWlIIPzOGwk6LHMcN97wb3FNNtsBw/edit?tab=t.0" target="_blank" rel="noopener">To the Game Design Document</a>
+		</div>
+
+		<h2 class="work-section-title">MY WORK</h2>
+
+		<section class="gallery">
+			<!-- Main villain concept art -->
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Illustration2.png" alt="Main villain concept art">
+				</div>
+				<p class="card-caption">Concept Art of the main villain</p>
+			</div>
+
+			<!-- Characters section -->
+			<h3 class="subsection-title">CHARACTERS</h3>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-4.0.png" alt="Important characters">
+				</div>
+				<p class="card-caption">Important characters for the story</p>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-5.0.png" alt="Nameless cats">
+				</div>
+				<p class="card-caption">Nameless cats, you have to interact with.</p>
+			</div>
+
+			<!-- Story-relevant assets section -->
+			<h3 class="subsection-title">STORY-RELEVANT ASSETS</h3>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-1.0.png" alt="Story asset 1">
+				</div>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-2.0.png" alt="Story asset 2">
+				</div>
+			</div>
+
+			<!-- Animation section -->
+			<h3 class="subsection-title">ANIMATION</h3>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\baer_idle.png" alt="Idle animation">
+				</div>
+				<p class="card-caption">Idle animation of the player character</p>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\lauf_animation_baer.png" alt="Walk animation">
+				</div>
+				<p class="card-caption">Walk animation of the player character</p>
+			</div>
+
+			<!-- Level Design Assets section -->
+			<h3 class="subsection-title">ASSETS FOR LEVEL DESIGN</h3>
+
+			<div class="gallery-item">
+				<div class="card">
+					<div class="collage collage-2">
+						<div class="collage-item"><img src="Pet_the_Cats_images\Haeuser-Sammlung_V2.png" alt="Houses V2"></div>
+						<div class="collage-item"><img src="Pet_the_Cats_images\Haeser-Sammlung_V3.png" alt="Houses V3"></div>
+					</div>
+				</div>
+				<p class="card-caption">Different houses to create the town</p>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<div class="collage collage-3">
+						<div class="collage-item"><img src="Pet_the_Cats_images\Boeden_V2.png" alt="Ground texture V2"></div>
+						<div class="collage-item"><img src="Pet_the_Cats_images\Boeden_V3.png" alt="Ground texture V3"></div>
+						<div class="collage-item"><img src="Pet_the_Cats_images\Boeden_V5.png" alt="Ground texture V5"></div>
+					</div>
+				</div>
+				<p class="card-caption">Ground textures. They didn't work out in my opinion, because you clearly see the grid and the repetition. I tried various levels of detail, but in retrospect I would use one simple colour for each ground, code for the random distribution of details and a Noise Map.</p>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-6.0.png" alt="Library floor texture">
+				</div>
+				<p class="card-caption">Floor texture for the library</p>
+			</div>
+
+			<div class="gallery-item">
+				<div class="card">
+					<img src="Pet_the_Cats_images\Asset-Sammlung-3.0.png" alt="Cellar floor and wall">
+				</div>
+				<p class="card-caption">Floor and wall texture for a secret cellar of a fountain</p>
+			</div>
+		</section>
 	</main>
-	<!-- ...existing code... -->
 </body>
 </html>
