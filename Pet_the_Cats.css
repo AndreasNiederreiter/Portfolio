@@ -177,12 +177,20 @@ body {
 }
 
 .card img {
-	width: 100%;
-	height: auto;
+	/* vorher: width: 100%; height: auto; max-width: 100%; object-fit: contain; */
+	/* Neu: nicht über die natürliche Größe hinaus aufblähen, aber bei kleinen Containern verkleinern */
+	width: auto;
 	max-width: 100%;
+	height: auto;
 	object-fit: contain;
 	display: block;
 	border-radius: 10px;
+}
+
+/* Utility: wenn ein Bild wirklich die Kartenbreite ausfüllen soll, explizit setzen */
+.card img.full-width {
+	width: 100%;
+	height: auto;
 }
 
 /* Collage (für mehrere Bilder nebeneinander) */
